@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David & Goliath Story</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+    }
+    img {
+        max-width: 90%;
+        max-height: 70vh;
+        border: 2px solid #333;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .caption {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+    }
+    button:hover {
+        background-color: #555;
+    }
+</style>
+</head>
+<body>
+
+<h1>David & Goliath Story</h1>
+<img id="storyImage" src="" alt="Story Image">
+<div class="caption" id="caption"></div>
+<br>
+<button onclick="prevImage()">Previous</button>
+<button onclick="nextImage()">Next</button>
+
+<script>
+    const images = [];
+    const captions = [];
+
+    // Add images 00 to 21
+    for (let i = 0; i <= 14; i++) {
+        const num = i.toString().padStart(2, '0');
+        images.push(`${num}_FB_LS_Good_Samaritan_1024.jpg`);
+      
+        //captions.push(`This is a random caption for image ${num}`); // Replace with actual captions later
+        // Set captions for each image
+        switch (num) {
+            case "01":
+                captions.push("‘Then Jesus said, ‘A man had two sons.");
+                break;
+            case "02":
+                captions.push("‘The younger of them said to his father, “Father, give me the share of the estate that will belong to me.” So he divided his assets between them.");
+                break;
+            case "03":
+                captions.push("‘After a few days, the younger son gathered together all he had and left on a journey to a distant country… ");
+                break;
+            case "04":
+                captions.push("‘… and there he squandered his wealth with a wild lifestyle.");
+                break;
+            case "05":
+                captions.push("‘Then after he had spent everything, a severe famine took place in that country, and he began to be in need.");
+                break;
+            case "06":
+                captions.push("‘So he went and worked for one of the citizens of that country, who sent him to his fields to feed pigs.");
+                break;
+            case "07":
+                captions.push("‘He was longing to eat the carob pods the pigs were eating, but no one gave him anything. But when he came to his senses he said …");
+                break;
+            case "08":
+                captions.push("‘“How many of my father’s hired workers have food enough to spare, but here I am dying from hunger! I will get up and go to my father and say to him, ‘Father, I have sinned against heaven and against you. I am no longer worthy to be called your son; treat me like one of your hired workers.’”");
+                break;  
+            case "09":
+                captions.push("‘So he got up and went to his father. But while he was still a long way from home his father saw him, and his heart went out to him; he ran and hugged his son and kissed him’");
+                break;
+            case "10":
+                captions.push("‘Then his son said to him, “Father, I have sinned against heaven and against you; I am no longer worthy to be called your son.”");
+                break;
+            case "11":
+                captions.push("But the father said to his slaves, “Hurry! Bring the best robe, and put it on him! Put a ring on his finger and sandals on his feet! Bring the fattened calf and kill it! Let us eat and celebrate, because this son of mine was dead, and is alive again – he was lost and is found!” So they began to celebrate.");
+                break;
+            case "12":
+                captions.push("‘Now his older son was in the field. As he came and approached the house, he heard music and dancing. So he called one of the slaves and asked what was happening. The slave replied, “Your brother has returned, and your father has killed the fattened calf because he got his son back safe and sound.” But the older son became angry and refused to go in.");
+                break;
+            case "13":
+                captions.push("‘His father came out and appealed to him, but he answered his father, “Look! These many years I have worked like a slave for you, and I never disobeyed your commands. ’");
+                break;
+            case "14":
+                captions.push("‘”Yet you never gave me even a goat so that I could celebrate with my friends! But when this son of yours came back, who has devoured your assets with prostitutes, you killed the fattened calf for him!”");
+                break;
+            case "15":
+                captions.push("‘Then the father said to him, “Son, you are always with me, and everything that belongs to me is yours. It was appropriate to celebrate and be glad, for your brother was dead, and is alive; he was lost and is found.”’");
+                break;
+            //case "16":
+                //captions.push("He found a place for the man to stay and paid for everything he needed. Jesus wants us to help other people. That is called ‘being a good Samaritan.’");
+               // break;
+            
+            //case "21":
+                //captions.push("Slide 20 – [Add text here]");
+                //break;
+            //case "22":
+                //captions.push("Slide 21 – [Add text here]");
+                //break;
+            default:
+                captions.push("God’s forgiveness & restoration");
+        }
+    }
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const imgElement = document.getElementById("storyImage");
+        const captionElement = document.getElementById("caption");
+
+        imgElement.src = images[index];
+        captionElement.textContent = captions[index];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Initialize
+    showImage(currentIndex);
+</script>
+
+</body>
+</html>
